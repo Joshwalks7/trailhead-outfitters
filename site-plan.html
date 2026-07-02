@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Site Plan & Technical Planning | Trailhead Outfitters</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
+        :root {
+            --primary-color: #2E5A44; /* Placeholder: Forest Green */
+            --secondary-color: #4A7C59;
+            --accent-color: #D68C45;
+            --bg-color: #FAF9F6;
+            --text-color: #333333;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 2rem 1rem;
+        }
+
+        main {
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        section {
+            background: white;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        h2 {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 0.5rem;
+            margin-top: 0;
+        }
+
+        h3 {
+            color: var(--secondary-color);
+        }
+
+        .color-palette {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin: 1rem 0;
+        }
+
+        .color-box {
+            flex: 1;
+            min-width: 120px;
+            text-align: center;
+            padding: 1.5rem 0.5rem;
+            border-radius: 4px;
+            color: white;
+            font-weight: bold;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.6);
+        }
+
+        .wireframe-placeholder {
+            background: #eef2f5;
+            border: 2px dashed #b0bec5;
+            padding: 2rem;
+            text-align: center;
+            margin: 1rem 0;
+            border-radius: 6px;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 1rem 0;
+        }
+
+        pre {
+            background: #272822;
+            color: #f8f8f2;
+            padding: 1rem;
+            border-radius: 4px;
+            overflow-x: auto;
+        }
+
+        code {
+            font-family: 'Courier New', Courier, monospace;
+        }
+        .heading {
+            font-family: Oswald;
+            /* font-size: 1.8em; */
+        }
+        .body-text {
+            font-family: Helvetica, sans-serif;
+            /* font-size: 1.5em; */
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Trusty's Trailhead Outfitters</h1>
+        <p>Project Site Plan & Technical Documentation</p>
+    </header>
+
+    <main>
+
+        <section>
+            <h2>🎨 Part 1 — Design Planning</h2>
+            
+            <h3>Wireframes</h3>
+            <p>Visual layouts demonstrating header/navigation, main content area, cards/lists, forms, footer, and major UI sections.</p>
+            
+            <h4>Home Page Wireframe</h4>
+            <div class="wireframe-placeholder">
+                <p><img src="/images/homepage-wf.jpg"></p>
+            </div>
+
+            <h4>Product Modal and Checkout Wireframe</h4>
+            <div class="wireframe-placeholder">
+                <p><img src="/images/product-modal-wf.jpg"></p>
+            </div>
+
+            <h4>Search Page and Form Modal Wireframe</h4>
+            <div class="wireframe-placeholder">
+                <p><img src="/images/search-checkout-wf.jpg"></p>
+            </div>
+
+            <h4>Mobile Views Wireframe</h4>
+            <div class="wireframe-placeholder">
+                <p><img src="/images/mobile-views-wf.jpg"></p>
+            </div>
+
+            <h3>Color Palette</h3>
+            <p>Selected color choices ensuring strong readability and contrast standards.</p>
+            <div class="color-palette">
+                <div class="color-box" style="background-color: #2E5A44;">Primary<br>#2E5A44</div>
+                <div class="color-box" style="background-color: #4A7C59;">Secondary<br>#4A7C59</div>
+                <div class="color-box" style="background-color: #D68C45;">Accent<br>#D68C45</div>
+                <div class="color-box" style="background-color: #FAF9F6; color: #333; text-shadow: none; border: 1px solid #ccc;">Background<br>#FAF9F6</div>
+                <div class="color-box" style="background-color: #333333;">Text<br>#333333</div>
+            </div>
+
+            <h3>Typography</h3>
+            <ul>
+                <li class="heading"><strong>Heading Font:</strong> Oswald (Google Fonts)</li>
+                <li class="body-text"><strong>Body Font:</strong> Helvetica (Google Fonts)</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>🧱 Part 2 — Technical Planning</h2>
+
+            <h3>Planned Pages / Views</h3>
+            <ul>
+                <li><strong>Home Page:</strong> Features a hero banner and best sellers products list with a normal header. The products tab opens to show a couple different categories like "Men", "Women", "Gear", etc</li>
+                <li><strong>Product Search Page:</strong> Loads products based on the customer's search query in the URL parameters. If a product category is selected it uses that category as the query parameters. Clicking on a product opens a modal view with a larger image, the description, price, quantity, and a button to add it to the cart.</li>
+                <li><strong>Cart / Order Form Page:</strong> Items in the cart are loaded using localStorage and are displayed to one side with the cart financial details are on the other. Checking out opens the modal that lets the user enter data into a form</li>
+            </ul>
+
+            <h3>Planned JavaScript Modules</h3>
+            <ul>
+                <li><strong><code>main.js</code>:</strong> This is where the initialization occurs when the page loads. It will trigger the initial data fetching from the JSON file</li>
+                <li><strong><code>data.js</code>:</strong> This will simply handle fetching data from the JSON file</li>
+                <li><strong><code>render.js</code>:</strong> This will be responsible for rendering the page load with product cards from the data.js file as well as fetching data stored in localStorage on the cart page. Modals will appear and go away, dropdowns will perform as expected</li>
+                <li><strong><code>storage.js</code>:</strong> Manages getting, setting, and deleting items inside <code>localStorage</code> for the shopping cart.</li>
+            </ul>
+
+            <h3>Planned Data Structure</h3>
+            <p>Data schema structure for application components: Data will be fetched from a JSON file that is structured to have a name for the product, the categories it belongs too so that it can be easily searched, the price, description that shows on the modal view, and image url path</p>
+            <pre><code>{
+                "id": "tent-01",
+                "name": "Alpenglow 2-Person Tent",
+                "categories": ["camp-kitchen", "backpacking"],
+                "price": 189.99,
+                "description": "A lightweight, three-season backpacking tent with dual vestibules.",
+                "imageUrl": "images/tent-01.jpg"
+            }</code></pre>
+            <h3>Planned localStorage Feature</h3>
+            <p><strong>Shopping Cart Persistence:</strong> I am going to use <code>localStorage</code> to retain a customer's cart data even if they leave the page. Obviously it will eventually go away with time or if the user clears their cache, but it should be fairly convenient. This will allow the user to view their cart and continue shopping.</p>
+        </section>
+
+        <section>
+            <h2>🚀 Deployment & Repository Info</h2>
+            <ul>
+                <li><strong>GitHub Repository:</strong> <a href="https://github.com/Joshwalks7/trailhead-outfitters" target="_blank">https://github.com/Joshwalks7/trailhead-outfitters</a></li>
+                <li><strong>Live Netlify Deployment:</strong> <a href="https://jw-trailhead-outfitters.netlify.app/" target="_blank">https://jw-trailhead-outfitters.netlify.app/</a></li>
+            </ul>
+        </section>
+
+    </main>
+
+</body>
+</html>
