@@ -1,0 +1,31 @@
+:root {
+	--primary-color: #2e5a44;
+	--secondary-color: #4a7c59;
+	--accent-color: #d68c45;
+	--bg-color: #faf9f6;
+	--surface-color: #ffffff;
+	--text-color: #333333;
+}
+#product-page-container{
+    display: grid;
+    grid-template-columns: 1fr;
+    width: 100%;
+    gap: 5px;
+}
+#filter-tab {
+    margin: 20px 0;
+    padding: 0 20px;
+}
+#products-side-bar {
+    padding: 5px;
+}
+@media screen and (min-width: 600px) {
+    #product-page-container{
+    grid-template-columns: 1fr 4fr;
+    }
+    #filter-tab {
+    border-right: var(--accent-color) 3px solid;
+    margin: 20px 0;
+    padding: 0 20px;
+    }
+}
