@@ -6,6 +6,7 @@ export default defineConfig({
       input: {
         main: 'index.html',
         sitePlan: 'site-plan.html',
+        products: 'products.html',
       },
     },
   },
