@@ -1,0 +1,242 @@
+[
+  {
+    "id": "apparel-m-01",
+    "name": "Men's Alpine Shell Jacket",
+    "categories": ["men", "apparel", "hiking"],
+    "price": 149.99,
+    "description": "A completely waterproof, breathable shell designed for high-altitude wind and rain.",
+    "imageUrl": "/images/products/mens-alpine-jacket.jpg"
+  },
+  {
+    "id": "apparel-m-02",
+    "name": "Men's Convertible Trail Pants",
+    "categories": ["men", "apparel", "hiking", "backpacking"],
+    "price": 75.00,
+    "description": "Durable nylon pants that easily zip off into shorts for fluctuating trail temperatures.",
+    "imageUrl": "/images/products/mens-trail-pants.jpg"
+  },
+  {
+    "id": "apparel-m-03",
+    "name": "Men's Merino Base Layer Top",
+    "categories": ["men", "apparel", "snow"],
+    "price": 65.00,
+    "description": "Odor-resistant, moisture-wicking merino wool for core temperature regulation.",
+    "imageUrl": "/images/products/mens-merino-top.jpg"
+  },
+  {
+    "id": "apparel-m-04",
+    "name": "Men's Vented Hiking Button-Up",
+    "categories": ["men", "apparel", "hiking"],
+    "price": 55.00,
+    "description": "UPF 50+ sun protection with a back mesh vent for maximum airflow on hot days.",
+    "imageUrl": "/images/products/mens-vented-shirt.jpg"
+  },
+  {
+    "id": "apparel-m-05",
+    "name": "Men's All-Weather Trekking Shorts",
+    "categories": ["men", "apparel", "hiking", "trail-running"],
+    "price": 45.00,
+    "description": "Lightweight, quick-drying shorts with secure zipper pockets.",
+    "imageUrl": "/images/products/mens-trekking-shorts.jpg"
+  },
+  {
+    "id": "apparel-w-01",
+    "name": "Women's Summit Down Jacket",
+    "categories": ["women", "apparel", "hiking", "snow"],
+    "price": 189.99,
+    "description": "800-fill responsibly sourced down provides incredible warmth in a packable profile.",
+    "imageUrl": "/images/products/womens-down-jacket.jpg"
+  },
+  {
+    "id": "apparel-w-02",
+    "name": "Women's Trail Blazer Leggings",
+    "categories": ["women", "apparel", "trail-running", "hiking"],
+    "price": 68.00,
+    "description": "Abrasion-resistant side panels and deep thigh pockets make these perfect for rugged trails.",
+    "imageUrl": "/images/products/womens-trail-leggings.jpg"
+  },
+  {
+    "id": "apparel-w-03",
+    "name": "Women's Merino Base Layer Bottoms",
+    "categories": ["women", "apparel", "snow"],
+    "price": 65.00,
+    "description": "Next-to-skin comfort for cold weather layering without the bulk.",
+    "imageUrl": "/images/products/womens-merino-bottoms.jpg"
+  },
+  {
+    "id": "apparel-w-04",
+    "name": "Women's Sun-Shield Long Sleeve",
+    "categories": ["women", "apparel", "hiking"],
+    "price": 48.00,
+    "description": "Ultra-lightweight hooded sun shirt with thumb loops and UPF 40 protection.",
+    "imageUrl": "/images/products/womens-sun-shield.jpg"
+  },
+  {
+    "id": "apparel-w-05",
+    "name": "Women's Peak Explorer Shorts",
+    "categories": ["women", "apparel", "hiking"],
+    "price": 45.00,
+    "description": "Stretchy, water-resistant shorts with a comfortable wide waistband.",
+    "imageUrl": "/images/products/womens-explorer-shorts.jpg"
+  },
+  {
+    "id": "camp-01",
+    "name": "Alpenglow 2-Person Tent",
+    "categories": ["camping", "backpacking", "gear"],
+    "price": 189.99,
+    "description": "A lightweight, three-season backpacking tent with dual vestibules.",
+    "imageUrl": "/images/products/tent-alpenglow.webp"
+  },
+  {
+    "id": "camp-02",
+    "name": "Starlight 15-Degree Sleeping Bag",
+    "categories": ["camping", "backpacking", "gear"],
+    "price": 219.00,
+    "description": "Mummy-style sleeping bag designed to keep you warm well below freezing.",
+    "imageUrl": "/images/products/sleeping-bag-starlight.jpg"
+  },
+  {
+    "id": "camp-03",
+    "name": "Cloud-Rest Insulated Sleeping Pad",
+    "categories": ["camping", "backpacking", "gear"],
+    "price": 110.00,
+    "description": "3.5 inches of supportive loft with an R-value of 4.2 for year-round comfort.",
+    "imageUrl": "/images/products/sleeping-pad.jpg"
+  },
+  {
+    "id": "camp-04",
+    "name": "Ultralight Camp Chair",
+    "categories": ["camping", "gear"],
+    "price": 85.00,
+    "description": "Packs down to the size of a water bottle but holds up to 250 lbs.",
+    "imageUrl": "/images/products/camp-chair.jpg"
+  },
+  {
+    "id": "camp-05",
+    "name": "Solar-Powered LED Lantern",
+    "categories": ["camping", "gear", "accessories"],
+    "price": 29.99,
+    "description": "Collapsible, waterproof lantern that charges via sunlight or USB.",
+    "imageUrl": "/images/products/solar-lantern.jpg"
+  },
+  {
+    "id": "kitchen-01",
+    "name": "PocketRocket Camp Stove",
+    "categories": ["camping", "camp-kitchen", "backpacking"],
+    "price": 49.95,
+    "description": "Boils 1 liter of water in under 3.5 minutes. Fuel sold separately.",
+    "imageUrl": "/images/products/pocket-rocket-stove.jpg"
+  },
+  {
+    "id": "kitchen-02",
+    "name": "Titanium 2-Pot Cook Set",
+    "categories": ["camping", "camp-kitchen", "backpacking"],
+    "price": 55.00,
+    "description": "Incredibly durable and lightweight nesting pots for trailside meals.",
+    "imageUrl": "/images/products/titanium-cook-set.jpg"
+  },
+  {
+    "id": "kitchen-03",
+    "name": "Long-Handle Titanium Spork",
+    "categories": ["camping", "camp-kitchen", "accessories"],
+    "price": 12.00,
+    "description": "Keeps your hands clean when eating directly out of dehydrated meal pouches.",
+    "imageUrl": "/images/products/titanium-spork.jpg"
+  },
+  {
+    "id": "kitchen-04",
+    "name": "Insulated Camp Mug 14oz",
+    "categories": ["camping", "camp-kitchen"],
+    "price": 24.99,
+    "description": "Double-wall vacuum insulation keeps your morning coffee piping hot.",
+    "imageUrl": "/images/products/camp-mug.jpg"
+  },
+  {
+    "id": "kitchen-05",
+    "name": "Gravity Water Filter System",
+    "categories": ["camping", "backpacking", "gear"],
+    "price": 119.95,
+    "description": "Filters up to 3 liters of backcountry water in minutes with zero pumping required.",
+    "imageUrl": "/images/products/gravity-filter.jpg"
+  },
+  {
+    "id": "gear-01",
+    "name": "Traverse 65L Backpack",
+    "categories": ["backpacking", "gear"],
+    "price": 240.00,
+    "description": "Adjustable suspension system and highly breathable mesh back panel for multi-day trips.",
+    "imageUrl": "/images/products/traverse-65l-pack.jpg"
+  },
+  {
+    "id": "gear-02",
+    "name": "Carbon Fiber Trekking Poles",
+    "categories": ["hiking", "backpacking", "gear"],
+    "price": 130.00,
+    "description": "Shock-absorbing, ultra-light poles that save your knees on steep descents.",
+    "imageUrl": "/images/products/trekking-poles.jpg"
+  },
+  {
+    "id": "gear-03",
+    "name": "Lumina 400 Lumen Headlamp",
+    "categories": ["camping", "hiking", "gear", "trail-running"],
+    "price": 39.95,
+    "description": "Features multiple brightness settings and a red-light mode for preserving night vision.",
+    "imageUrl": "/images/products/headlamp.jpg"
+  },
+  {
+    "id": "gear-04",
+    "name": "3-Liter Hydration Reservoir",
+    "categories": ["hiking", "backpacking", "gear"],
+    "price": 35.00,
+    "description": "Leak-proof bladder with a high-flow bite valve, compatible with most daypacks.",
+    "imageUrl": "/images/products/hydration-reservoir.jpg"
+  },
+  {
+    "id": "gear-05",
+    "name": "Topographic Field Compass",
+    "categories": ["hiking", "backpacking", "gear", "accessories"],
+    "price": 25.00,
+    "description": "Reliable navigation tool featuring adjustable declination and a built-in magnifying glass.",
+    "imageUrl": "/images/products/compass.jpg"
+  },
+  {
+    "id": "footwear-01",
+    "name": "Men's Ridge Trekker Boots",
+    "categories": ["men", "footwear", "hiking"],
+    "price": 160.00,
+    "description": "Mid-height waterproof boots providing excellent ankle support and rugged traction.",
+    "imageUrl": "/images/products/mens-trekker-boots.jpg"
+  },
+  {
+    "id": "footwear-02",
+    "name": "Women's Ridge Trekker Boots",
+    "categories": ["women", "footwear", "hiking"],
+    "price": 160.00,
+    "description": "Mid-height waterproof boots providing excellent ankle support and rugged traction.",
+    "imageUrl": "/images/products/womens-trekker-boots.jpg"
+  },
+  {
+    "id": "footwear-03",
+    "name": "Swift-Stride Trail Runners",
+    "categories": ["men", "women", "footwear", "trail-running"],
+    "price": 135.00,
+    "description": "Unisex design featuring highly responsive foam and aggressive lugs for loose terrain.",
+    "imageUrl": "/images/products/trail-runners.jpg"
+  },
+  {
+    "id": "footwear-04",
+    "name": "Merino Wool Hiking Socks",
+    "categories": ["men", "women", "apparel", "footwear"],
+    "price": 22.00,
+    "description": "Seamless toe construction and targeted cushioning to prevent blisters on long miles.",
+    "imageUrl": "/images/products/wool-socks.jpg"
+  },
+  {
+    "id": "footwear-05",
+    "name": "Waterproof Trail Gaiters",
+    "categories": ["men", "women", "footwear", "gear"],
+    "price": 34.00,
+    "description": "Keeps rocks, mud, and snow out of your boots. Attaches securely to most footwear.",
+    "imageUrl": "/images/products/trail-gaiters.jpg"
+  }
+]

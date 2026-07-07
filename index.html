@@ -2,15 +2,94 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>trailhead-outfitters</title>
+    <title>Trailhead Outfitters</title>
+    <link rel="stylesheet" href="src/style.css">
+    <script type="module" src="src/js/main.js"></script>
   </head>
   <body>
-    <h1>Hi! This is the beginning of my site! Check out the site plan: <a href="site-plan.html">site-plan.html</a></h1>
-    <ul>
-        <li><strong>GitHub Repository:</strong> <a href="https://github.com/Joshwalks7/trailhead-outfitters" target="_blank">https://github.com/Joshwalks7/trailhead-outfitters</a></li>
-        <li><strong>Live Netlify Deployment:</strong> <a href="https://jw-trailhead-outfitters.netlify.app/" target="_blank">https://jw-trailhead-outfitters.netlify.app/</a></li>
-    </ul>
+    <header class="site-header">
+		<div class="container header-content">
+			<h1 class="brand">Trailhead Outfitters</h1>
+			<form class="search-form" action="products.html" method="GET">
+				<input class="search-input" id="search" name="search" type="search" placeholder="Search products">
+				<button class="search-button" type="submit" id="searchBtn" aria-label="Search products">
+					<img src="/images/search.svg" alt="">
+				</button>
+      </form>
+			<button class="menu-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="primary-navigation">
+				<span></span>
+				<span></span>
+				<span></span>
+			</button>
+			<nav class="site-nav" id="primary-navigation" aria-label="Main Navigation">
+				<ul class="main-nav">
+					<li><a href="index.html">Home</a></li>
+					<li><a href="products.html">Products</a></li>
+					<li><a href="#">Cart</a></li>
+					<li><a href="site-plan.html">Site Plan</a></li>
+				</ul>
+			</nav>
+		</div>
+	</header>
+
+	<main>
+		<section class="hero">
+			<div class="container hero-content">
+				<h2>Gear Up For Your Next Adventure</h2>
+				<p>Browse outdoor essentials for hiking, camping, and trail exploration.</p>
+				<a class="button" href="#best-sellers">Shop Best Sellers</a>
+			</div>
+		</section>
+
+		<section class="best-sellers" id="best-sellers">
+			<div class="container">
+				<h2>Best Sellers</h2>
+				<div class="product-grid">
+					<article class="product-card">
+            <div class="image-holder">
+              <img src="/public/images/products/tent-alpenglow.webp" alt="tent">
+            </div>
+						<h3>Alpenglow Tent</h3>
+						<p>Lightweight 2-person backpacking tent.</p>
+						<p class="price">$189.99</p>
+						<button>View Product</button>
+					</article>
+
+					<article class="product-card">
+            <div class="image-holder">
+              <img src="/public/images/products/ridgeline-backpack.webp" alt="ridgeline-backpack">
+            </div>
+						<h3>RidgeLine Backpack</h3>
+						<p>Durable 40L pack for weekend trips.</p>
+						<p class="price">$129.99</p>
+						<button>View Product</button>
+					</article>
+
+					<article class="product-card">
+						<h3>Summit Jacket</h3>
+						<p>Water-resistant shell for variable weather.</p>
+						<p class="price">$99.99</p>
+						<button>View Product</button>
+					</article>
+
+					<article class="product-card">
+						<h3>CampFire Cook Kit</h3>
+						<p>Compact cookware set for campsite meals.</p>
+						<p class="price">$74.99</p>
+						<button>View Product</button>
+					</article>
+				</div>
+			</div>
+		</section>
+	</main>
+
+	<footer class="site-footer">
+		<div class="container footer-content">
+			<p>Trailhead Outfitters</p>
+			<p><a href="https://github.com/Joshwalks7/trailhead-outfitters" target="_blank" rel="noreferrer">GitHub Repository</a></p>
+		</div>
+	</footer>
+
   </body>
 </html>
