@@ -16,3 +16,25 @@ function renderCard(product) {
             </article>`;
     productGrid.innerHTML += card;
 }
+export function renderSubtractionBtn() {
+    const subtractBtn = document.getElementById("subtract-btn");
+    subtractBtn.addEventListener("click", () => {
+        let quantity = document.getElementById("quantity");
+        let quantityNum = parseInt(quantity.textContent, 10);
+        if (quantityNum > 0) {
+            quantityNum--;
+            quantity.innerHTML = quantityNum;
+        }
+    })
+}
+export function renderAddBtn() {
+    const addBtn = document.getElementById("add-btn");
+    addBtn.addEventListener("click", () => {
+        let quantity = document.getElementById("quantity");
+        let quantityNum = parseInt(quantity.textContent, 10);
+        if (quantityNum < 10) {
+            quantityNum++;
+            quantity.innerHTML = quantityNum;
+        }
+    })
+}
