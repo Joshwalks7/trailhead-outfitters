@@ -6,7 +6,8 @@
     <title>Trailhead Outfitters</title>
     <link rel="stylesheet" href="src/style.css">
     <link rel="stylesheet" href="src/products.css">
-    <script type="module" src="src/js/products.js"></script>
+    <script type="module" src="src/js/main.js" defer></script>
+    <script type="module" src="src/js/products.js" defer></script>
   </head>
   <body>
     <header class="site-header">
@@ -34,6 +35,11 @@
 		</div>
 	</header>
     <main>
+      <section id="modalOverlay" class="hidden">
+        <div class="modalBox">
+          Test!
+        </div>
+      </section>
         <div id="product-page-container">
             <div id="filter-tab">Filters:</div>
             <div id="products-side-bar">

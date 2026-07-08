@@ -4,7 +4,9 @@ import { renderProductCards } from "./render.js";
 const productData = await fetchProductData();
 console.log(productData);
 const productGrid = document.querySelector(".product-grid");
-
+export function returnProductData() {
+    return productData;
+}
 function filterProducts() {
     const params = new URLSearchParams(window.location.search);
     const rawSearch = params.get("search"); // Wait to lowercase this!

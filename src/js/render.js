@@ -12,7 +12,7 @@ function renderCard(product) {
                 <h3>${product.name}</h3>
                 <p>${product.description}</p>
                 <p class="price">$${product.price}</p>
-                <button>View Product</button>
+                <button data-id="${product.id}">View Product</button>
             </article>`;
     productGrid.innerHTML += card;
 }
