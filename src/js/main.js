@@ -1,6 +1,7 @@
 import './navigation.js';
-import './navigation.js';
 import { returnProductData } from './products.js';
+import { renderSubtractionBtn, renderAddBtn } from './render.js';
+import { addToCart } from './storage.js';
 const products = returnProductData();
 
 const overlay = document.getElementById("modalOverlay");
@@ -26,12 +27,29 @@ if (productGrid) {
             const clickedId = event.target.dataset.id;
             const matchedProduct = products.find(product => product.id === clickedId);
             modalBox.innerHTML = `
-            <h2>${matchedProduct.name}</h2>
-            <p>${matchedProduct.description}</p>
-            <p class="price">$${matchedProduct.price}</p>
-            <button class="add-to-cart">Add to Cart</button>
-            `;
+            <article class="modal-card">
+            <div class="image-holder">
+              <img src="${matchedProduct.imageUrl}" alt="${matchedProduct.name} image">
+            </div>
+            <div>
+                <h3>${matchedProduct.name}</h3>
+                <p>${matchedProduct.description}</p>
+                <p class="price">$${matchedProduct.price}</p>
+                <div class="quantity-buttons">
+                    <button id="subtract-btn">-</button>
+                    <p id="quantity">1</p>
+                    <button id="add-btn">+</button>
+                </div>
+                <button data-id="${matchedProduct.id}" id="add-to-cart">Add to Cart</button>
+            </div>
+            </article>`;
             showModal();
+            renderSubtractionBtn();
+            renderAddBtn();
+            const addToCartBtn = document.getElementById("add-to-cart");
+            addToCartBtn.addEventListener("click", () => {
+                addToCart(matchedProduct.id);
+            });
         }
     });
 }
