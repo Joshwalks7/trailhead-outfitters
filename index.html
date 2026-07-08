@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Trailhead Outfitters</title>
     <link rel="stylesheet" href="src/style.css">
-    <script type="module" src="src/js/main.js"></script>
+    <script type="module" src="src/js/main.js" defer></script>
   </head>
   <body>
     <header class="site-header">
@@ -41,15 +41,19 @@
 				<a class="button" href="#best-sellers">Shop Best Sellers</a>
 			</div>
 		</section>
-
+		<section id="modalOverlay" class="hidden">
+			<div class="modalBox">
+				Test!
+			</div>
+		</section>
 		<section class="best-sellers" id="best-sellers">
 			<div class="container">
 				<h2>Best Sellers</h2>
 				<div class="product-grid">
 					<article class="product-card">
-            <div class="image-holder">
-              <img src="/public/images/products/tent-alpenglow.webp" alt="tent">
-            </div>
+						<div class="image-holder">
+							<img src="/images/products/tent-alpenglow.webp" alt="tent">
+						</div>
 						<h3>Alpenglow Tent</h3>
 						<p>Lightweight 2-person backpacking tent.</p>
 						<p class="price">$189.99</p>
@@ -57,9 +61,9 @@
 					</article>
 
 					<article class="product-card">
-            <div class="image-holder">
-              <img src="/public/images/products/ridgeline-backpack.webp" alt="ridgeline-backpack">
-            </div>
+						<div class="image-holder">
+							<img src="/images/products/ridgeline-backpack.webp" alt="ridgeline-backpack">
+						</div>
 						<h3>RidgeLine Backpack</h3>
 						<p>Durable 40L pack for weekend trips.</p>
 						<p class="price">$129.99</p>

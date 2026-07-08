@@ -110,7 +110,28 @@ body {
 	margin: 0 0 24px;
 	font-size: 1.1rem;
 }
-
+#modalOverlay {
+	height: 100%;
+	width: 100%;
+	top: 0;
+	left: 0;
+	justify-content: center;
+	align-items: center;
+	background-color: rgba(0,0,0,0.5);
+	z-index: 100;
+	position: fixed;
+}
+.modalBox {
+	height: 200px;
+	width: min(500px, 90%);
+	background-color: white;
+}
+.hidden {
+	display: none;
+}
+.show {
+	display: flex;
+}
 .button {
 	display: inline-block;
 	background-color: var(--accent-color);
