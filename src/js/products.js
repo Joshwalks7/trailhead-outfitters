@@ -1,12 +1,10 @@
 import './navigation.js';
 import { fetchProductData } from "./data.js";
 import { renderProductCards } from "./render.js";
+import { viewModal } from "./main.js";
 const productData = await fetchProductData();
 console.log(productData);
 const productGrid = document.querySelector(".product-grid");
-export function returnProductData() {
-    return productData;
-}
 function filterProducts() {
     const params = new URLSearchParams(window.location.search);
     const rawSearch = params.get("search");
@@ -44,3 +42,4 @@ function filterProducts() {
 
 const filteredProducts = filterProducts();
 renderProductCards(filteredProducts, productGrid);
+viewModal(productGrid);

@@ -19,7 +19,7 @@ export function renderProductCards(products, targetContainer) {
 
 export function renderCartCards(item, targetContainer, quantity) {
     if (!targetContainer) return;
-    if (item == []) {
+    if (item == {}) {
         targetContainer.innerHTML = "No items in cart yet...";
         return;
     }
