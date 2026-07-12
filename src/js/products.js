@@ -9,7 +9,7 @@ export function returnProductData() {
 }
 function filterProducts() {
     const params = new URLSearchParams(window.location.search);
-    const rawSearch = params.get("search"); // Wait to lowercase this!
+    const rawSearch = params.get("search");
 
     // 1. The Safety Check
     if (!rawSearch) {
@@ -43,4 +43,4 @@ function filterProducts() {
 }
 
 const filteredProducts = filterProducts();
-renderProductCards(filteredProducts);
+renderProductCards(filteredProducts, productGrid);

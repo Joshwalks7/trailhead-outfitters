@@ -1,20 +1,42 @@
-const productGrid = document.getElementById("product-grid");
-export function renderProductCards(products) {
-    productGrid.innerHTML = "";
-    products.forEach(renderCard);
-}
-function renderCard(product) {
-    const card = `
+export function renderProductCards(products, targetContainer) {
+    if (!targetContainer) return;
+    targetContainer.innerHTML = "";
+    
+    products.forEach(product => {
+        const card = `
             <article class="product-card">
-            <div class="image-holder">
-              <img src="${product.imageUrl}" alt="${product.name} image">
-            </div>
+                <div class="image-holder">
+                  <img src="${product.imageUrl}" alt="${product.name} image">
+                </div>
                 <h3>${product.name}</h3>
                 <p>${product.description}</p>
                 <p class="price">$${product.price}</p>
                 <button data-id="${product.id}">View Product</button>
             </article>`;
-    productGrid.innerHTML += card;
+        targetContainer.innerHTML += card;
+    });
+}
+
+export function renderCartCards(item, targetContainer, quantity) {
+    if (!targetContainer) return;
+    if (item == []) {
+        targetContainer.innerHTML = "No items in cart yet...";
+        return;
+    }
+    const card = `
+        <article class="cart-product-card">
+            <div class="image-holder">
+                <img src="${item.imageUrl}" alt="${item.name} image">
+            </div>
+            <div>
+                <h3>${item.name}</h3>
+                <p>${item.description}</p>
+                <p class="price">$${item.price}</p>
+                <p>Quantity: <span class="product-quantity">${quantity}</span></p>
+                <button class="remove-btn" data-id="${item.id}">Remove from Cart</button>
+            </div>
+        </article>`;
+    targetContainer.innerHTML += card;
 }
 export function renderSubtractionBtn() {
     const subtractBtn = document.getElementById("subtract-btn");

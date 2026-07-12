@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Trailhead Outfitters</title>
     <link rel="stylesheet" href="src/style.css">
-    <link rel="stylesheet" href="src/products.css">
-    <script type="module" src="src/js/main.js" defer></script>
-    <script type="module" src="src/js/products.js" defer></script>
+    <link rel="stylesheet" href="src/cart.css">
+    <!-- <script type="module" src="src/js/main.js" defer></script> -->
+    <script type="module" src="src/js/cart.js" defer></script>
   </head>
   <body>
     <header class="site-header">
@@ -35,7 +35,28 @@
 		</div>
 	</header>
     <main>
-      <section id="modalOverlay" class="hidden">
+        <h1>Cart</h1>
+        <section id="cart-container">
+            <div id="cart-details">
+                <h3>Subtotal:</h3><div id="subtotal">$0.00</div>
+                <h3>Tax:</h3><div id="tax">$0.00</div>
+                <h3>Shipping</h3><div id="shipping">$0.00</div>
+                <h3>PROMO:</h3>
+                <div>
+                    <input type="text" 
+                            id="promo-code" 
+                            name="promoCode" 
+                            placeholder="Enter code" 
+                            aria-label="Enter promotional discount code">
+                </div>
+                <h3>Total:</h3><div id="total">$0.00</div>
+                <div id="checkout"><button>Continue to Checkout</button></div>
+            </div>
+            <div id="cart-products">
+
+            </div>
+        </section>
+      <!-- <section id="modalOverlay" class="hidden">
         <div class="modalBox">
           Test!
         </div>
@@ -48,7 +69,7 @@
 
                 </div>
             </div>
-        </div>
+        </div> -->
     </main>
     <footer class="site-footer">
 		<div class="container footer-content">
