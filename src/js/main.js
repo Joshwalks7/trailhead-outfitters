@@ -1,8 +1,8 @@
 import './navigation.js';
-import { returnProductData } from './products.js';
-import { renderSubtractionBtn, renderAddBtn } from './render.js';
+import { renderSubtractionBtn, renderAddBtn, renderProductCards } from './render.js';
 import { addToCart } from './storage.js';
-const products = returnProductData();
+import { fetchProductData } from "./data.js";
+const products = await fetchProductData();
 
 const overlay = document.getElementById("modalOverlay");
 const modalBox = document.querySelector(".modalBox");
@@ -20,8 +20,9 @@ function closeModal() {
 }
 
 // Event Delegation: Listen to the grid container
-if (productGrid) {
-    productGrid.addEventListener("click", (event) => {
+export function viewModal(grid) {
+    if (!grid) return;
+    grid.addEventListener("click", (event) => {
         // Check if the actual thing clicked was a button (or inside a button)
         if (event.target.tagName === "BUTTON") {
             const clickedId = event.target.dataset.id;
@@ -66,3 +67,16 @@ overlay.addEventListener("click", closeModal);
 modalBox.addEventListener("click", (event) => {
     event.stopPropagation();
 });
+// handle best seller display
+let bestProductsIds = ["camp-01", "apparel-m-05", "apparel-m-01", "apparel-m-02"];
+let bestProducts = [];
+bestProductsIds.forEach(bestSellerId => {
+    let product = products.find(matchedProduct => matchedProduct.id == bestSellerId);
+    bestProducts.push(product);
+})
+const bestSellerGrid = document.querySelector(".best-seller-grid");
+renderProductCards(bestProducts, bestSellerGrid);
+if (bestSellerGrid) {
+    renderProductCards(bestProducts, bestSellerGrid);
+    viewModal(bestSellerGrid);
+}

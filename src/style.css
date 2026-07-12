@@ -157,7 +157,7 @@ body {
 	color: var(--primary-color);
 }
 
-.product-grid {
+.product-grid, .best-seller-grid {
 	display: flex;
 	flex-wrap: wrap;
 	gap: 20px;
