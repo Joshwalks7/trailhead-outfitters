@@ -18,3 +18,8 @@ export function addToCart(productId) {
     
     console.log("Updated Cart Storage:", currentCart);
 }
+export function retrieveFromStorage() {
+    let currentCart = localStorage.getItem("cart");
+    currentCart = currentCart ? JSON.parse(currentCart) : [];
+    return currentCart;
+}

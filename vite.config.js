@@ -7,6 +7,7 @@ export default defineConfig({
         main: 'index.html',
         sitePlan: 'site-plan.html',
         products: 'products.html',
+        cart: 'cart.html',
       },
     },
   },
