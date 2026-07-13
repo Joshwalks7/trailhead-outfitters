@@ -17,13 +17,15 @@ export function renderProductCards(products, targetContainer) {
     });
 }
 
-export function renderCartCards(item, targetContainer, quantity) {
+export function renderCartCards(cart, targetContainer) {
     if (!targetContainer) return;
-    if (item == {}) {
+    if (cart.length === 0) {
         targetContainer.innerHTML = "No items in cart yet...";
         return;
     }
-    const card = `
+    targetContainer.innerHTML = "";
+    cart.forEach(item => {
+        const card = `
         <article class="cart-product-card">
             <div class="image-holder">
                 <img src="${item.imageUrl}" alt="${item.name} image">
@@ -32,11 +34,12 @@ export function renderCartCards(item, targetContainer, quantity) {
                 <h3>${item.name}</h3>
                 <p>${item.description}</p>
                 <p class="price">$${item.price}</p>
-                <p>Quantity: <span class="product-quantity">${quantity}</span></p>
+                <p>Quantity: <span class="product-quantity">${item.quantity}</span></p>
                 <button class="remove-btn" data-id="${item.id}">Remove from Cart</button>
             </div>
         </article>`;
     targetContainer.innerHTML += card;
+    })
 }
 export function renderSubtractionBtn() {
     const subtractBtn = document.getElementById("subtract-btn");
