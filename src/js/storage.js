@@ -11,7 +11,12 @@ export function addToCart(productId) {
         id: productId,
         quantity: itemQuantity
     };
-    currentCart.push(newCartItem);
+    let existingProduct = currentCart.find(matchedProduct => matchedProduct.id === newCartItem.id);
+    if (existingProduct) {
+        existingProduct.quantity += itemQuantity;
+    } else {
+        currentCart.push(newCartItem);
+    }
 
     // 5. Serialize the whole array into a string and save it permanently
     localStorage.setItem("cart", JSON.stringify(currentCart));
@@ -22,4 +27,10 @@ export function retrieveFromStorage() {
     let currentCart = localStorage.getItem("cart");
     currentCart = currentCart ? JSON.parse(currentCart) : [];
     return currentCart;
+}
+export function removeFromCart(clickedId) {
+    let currentCart = localStorage.getItem("cart");
+    currentCart = currentCart ? JSON.parse(currentCart) : [];
+    const updatedCart = currentCart.filter(item => item.id !== clickedId);
+    localStorage.setItem("cart", JSON.stringify(updatedCart));
 }

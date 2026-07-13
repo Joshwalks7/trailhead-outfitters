@@ -1,5 +1,5 @@
 import './navigation.js';
-import { retrieveFromStorage } from "./storage.js";
+import { retrieveFromStorage, removeFromCart } from "./storage.js";
 import { fetchProductData } from "./data.js";
 import { renderCartCards } from './render.js';
 let cartGrid = document.getElementById("cart-products");
@@ -15,8 +15,20 @@ currentCart.forEach(cartItem => {
         };
         cartProducts.push(combinedItem);
     }
-    renderCartCards(product, cartGrid, cartItem.quantity);
 });
+renderCartCards(cartProducts, cartGrid);
+if (cartGrid) {
+    cartGrid.addEventListener("click", (event) => {
+        if (event.target.classList.contains("remove-btn")) {
+            const clickedId = event.target.dataset.id;
+            removeFromCart(clickedId);
+            cartProducts = cartProducts.filter(item => item.id !== clickedId);
+            renderCartCards(cartProducts, cartGrid);
+            updateCheckoutDetails();
+        }
+    })
+}
+
 function updateCheckoutDetails() {
     const subtotal = document.getElementById("subtotal");
     const shipping = document.getElementById("shipping");
@@ -32,9 +44,12 @@ function updateCheckoutDetails() {
     let taxValue = taxRate * subtotalValue;
     tax.innerHTML = `$${taxValue.toFixed(2)}`;
     let shippingPrice = 0;
-    if (subtotalValue < 35)
-    {
-        shippingPrice = 6.99;
+    if (cartProducts.length > 0) {
+        if (subtotalValue < 75) {
+            shippingPrice = 6.99;
+        } else {
+            shippingPrice = 0;
+        }
     }
     shipping.innerHTML = `$${shippingPrice.toFixed(2)}`;
     let totalCharge = subtotalValue + taxValue + shippingPrice;
