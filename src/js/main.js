@@ -50,6 +50,7 @@ export function viewModal(grid) {
             const addToCartBtn = document.getElementById("add-to-cart");
             addToCartBtn.addEventListener("click", () => {
                 addToCart(matchedProduct.id);
+                closeModal();
             });
         }
     });
