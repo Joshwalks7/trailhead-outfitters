@@ -30,7 +30,7 @@ export function viewModal(grid) {
             modalBox.innerHTML = `
             <article class="modal-card">
             <div class="image-holder">
-              <img src="${matchedProduct.imageUrl}" alt="${matchedProduct.name} image">
+              <img src="${matchedProduct.imageUrl}" alt="${matchedProduct.name} image" loading="lazy">
             </div>
             <div>
                 <h3>${matchedProduct.name}</h3>
