@@ -1,81 +1,174 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Trailhead Outfitters</title>
-    <link rel="stylesheet" href="src/style.css">
-    <link rel="stylesheet" href="src/cart.css">
+    <link rel="stylesheet" href="src/style.css" />
+    <link rel="stylesheet" href="src/cart.css" />
     <!-- <script type="module" src="src/js/main.js" defer></script> -->
     <script type="module" src="src/js/cart.js" defer></script>
   </head>
   <body>
     <header class="site-header">
-		<div class="container header-content">
-			<h1 class="brand">Trailhead Outfitters</h1>
-            <form class="search-form" action="products.html" method="GET">
-				<input class="search-input" id="search" name="search" type="search" placeholder="Search products">
-				<button class="search-button" type="submit" id="searchBtn" aria-label="Search products">
-					<img src="/images/search.svg" alt="">
-				</button>
-            </form>
-      <button class="menu-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="primary-navigation">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-      <nav class="site-nav" id="primary-navigation" aria-label="Main Navigation">
-				<ul class="main-nav">
-					<li><a href="index.html">Home</a></li>
-					<li><a href="products.html">Products</a></li>
-					<li><a href="cart.html">Cart</a></li>
-					<li><a href="site-plan.html">Site Plan</a></li>
-				</ul>
-			</nav>
-		</div>
-	</header>
+      <div class="container header-content">
+        <h1 class="brand">Trailhead Outfitters</h1>
+        <form class="search-form" action="products.html" method="GET">
+          <input
+            class="search-input"
+            id="search"
+            name="search"
+            type="search"
+            placeholder="Search products"
+          />
+          <button
+            class="search-button"
+            type="submit"
+            id="searchBtn"
+            aria-label="Search products"
+          >
+            <img src="/images/search.svg" alt="" />
+          </button>
+        </form>
+        <button
+          class="menu-toggle"
+          type="button"
+          aria-label="Toggle navigation"
+          aria-expanded="false"
+          aria-controls="primary-navigation"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <nav
+          class="site-nav"
+          id="primary-navigation"
+          aria-label="Main Navigation"
+        >
+          <ul class="main-nav">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="cart.html">Cart</a></li>
+            <li><a href="site-plan.html">Site Plan</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
     <main>
-        <h1>Cart</h1>
-        <section id="cart-container">
-            <div id="cart-details">
-                <h3>Subtotal:</h3><div id="subtotal">$0.00</div>
-                <h3>Tax:</h3><div id="tax">$0.00</div>
-                <h3>Shipping</h3><div id="shipping">$0.00</div>
-                <h3>PROMO:</h3>
-                <div>
-                    <input type="text" 
-                            id="promo-code" 
-                            name="promoCode" 
-                            placeholder="Enter code" 
-                            aria-label="Enter promotional discount code">
-                </div>
-                <h3>Total:</h3><div id="total">$0.00</div>
-                <div id="checkout"><button>Continue to Checkout</button></div>
-            </div>
-            <div id="cart-products">
+      <h1>Cart</h1>
+      <section id="cart-container">
+        <div id="cart-details">
+          <h3>Subtotal:</h3>
+          <div id="subtotal">$0.00</div>
+          <h3>Tax:</h3>
+          <div id="tax">$0.00</div>
+          <h3>Shipping</h3>
+          <div id="shipping">$0.00</div>
+          <h3>PROMO:</h3>
+          <div>
+            <input
+              type="text"
+              id="promo-code"
+              name="promoCode"
+              placeholder="Enter code"
+              aria-label="Enter promotional discount code"
+            />
+          </div>
+          <h3>Total:</h3>
+          <div id="total">$0.00</div>
+          <div id="checkout">
+            <button type="button">Continue to Checkout</button>
+          </div>
+          <p id="purchase-message" aria-live="polite"></p>
+        </div>
+        <div id="cart-products"></div>
+      </section>
+      <section id="modalOverlay" class="hidden">
+        <div class="checkoutModalBox">
+          <h2>Checkout</h2>
+          <form id="checkout-form">
+            <p>
+              <label for="full-name">Full Name</label><br />
+              <input type="text" id="full-name" name="fullName" required />
+            </p>
+            <p>
+              <label for="email">Email</label><br />
+              <input type="email" id="email" name="email" required />
+            </p>
+            <p>
+              <label for="address">Shipping Address</label><br />
+              <input type="text" id="address" name="address" required />
+            </p>
 
-            </div>
-        </section>
-      <!-- <section id="modalOverlay" class="hidden">
-        <div class="modalBox">
-          Test!
+            <!-- Payment Section -->
+            <fieldset class="payment-details">
+              <legend>Payment Information</legend>
+
+              <p>
+                <label for="card-number">Card Number</label><br />
+                <input
+                  type="text"
+                  id="card-number"
+                  name="cardNumber"
+                  required
+                  inputmode="numeric"
+                  pattern="[0-9]{16}"
+                  maxlength="16"
+                  placeholder="1234567812345678"
+                  title="Please enter a valid 16-digit card number without spaces or dashes."
+                />
+              </p>
+
+              <div class="card-meta-group">
+                <p>
+                  <label for="card-expiry">Expiration Date</label><br />
+                  <input
+                    type="text"
+                    id="card-expiry"
+                    name="cardExpiry"
+                    required
+                    placeholder="MM/YY"
+                    pattern="(0[1-9]|1[0-2])\/[0-9]{2}"
+                    maxlength="5"
+                    title="Please enter the expiration date in MM/YY format."
+                  />
+                </p>
+
+                <p>
+                  <label for="card-cvv">Security Code (CVV)</label><br />
+                  <input
+                    type="text"
+                    id="card-cvv"
+                    name="cardCvv"
+                    required
+                    inputmode="numeric"
+                    pattern="[0-9]{3,4}"
+                    maxlength="4"
+                    placeholder="123"
+                    title="Please enter a 3 or 4-digit security code."
+                  />
+                </p>
+              </div>
+            </fieldset>
+
+            <button type="submit">Buy Now!</button>
+          </form>
         </div>
       </section>
-        <div id="product-page-container">
-            <div id="filter-tab">Filters:</div>
-            <div id="products-side-bar">
-                <h1>Products:</h1>
-                <div id="product-grid" class="product-grid">
-
-                </div>
-            </div>
-        </div> -->
     </main>
     <footer class="site-footer">
-		<div class="container footer-content">
-			<p>Trailhead Outfitters</p>
-			<p><a href="https://github.com/Joshwalks7/trailhead-outfitters" target="_blank" rel="noreferrer">GitHub Repository</a></p>
-		</div>
-	</footer>
-</body>
+      <div class="container footer-content">
+        <p>Trailhead Outfitters</p>
+        <p>
+          <a
+            href="https://github.com/Joshwalks7/trailhead-outfitters"
+            target="_blank"
+            rel="noreferrer"
+            >GitHub Repository</a
+          >
+        </p>
+      </div>
+    </footer>
+  </body>
 </html>

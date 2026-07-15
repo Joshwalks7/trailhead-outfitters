@@ -34,3 +34,7 @@ export function removeFromCart(clickedId) {
     const updatedCart = currentCart.filter(item => item.id !== clickedId);
     localStorage.setItem("cart", JSON.stringify(updatedCart));
 }
+
+export function clearCart() {
+    localStorage.removeItem("cart");
+}
