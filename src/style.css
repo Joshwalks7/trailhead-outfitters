@@ -162,7 +162,7 @@ body {
 	flex-wrap: wrap;
 	gap: 20px;
 	align-items: stretch;
-	margin: 0 auto;
+	justify-content: center;
 }
 .modal-card {
 	display: grid;
