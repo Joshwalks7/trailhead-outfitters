@@ -1,6 +1,6 @@
 import './navigation.js';
 import { fetchProductData } from "./data.js";
-import { renderProductCards } from "./render.js";
+import { renderProductCards, renderSubtractionBtn, renderAddBtn } from "./render.js";
 import { addToCart } from "./storage.js";
 
 const productData = await fetchProductData();
@@ -72,23 +72,11 @@ function showModal(product) {
     const addBtn = document.getElementById("add-btn");
 
     if (subtractBtn) {
-        subtractBtn.addEventListener("click", () => {
-            const quantity = document.getElementById("quantity");
-            const quantityNum = parseInt(quantity.textContent, 10);
-            if (quantityNum > 0) {
-                quantity.textContent = quantityNum - 1;
-            }
-        });
+        renderSubtractionBtn();
     }
 
     if (addBtn) {
-        addBtn.addEventListener("click", () => {
-            const quantity = document.getElementById("quantity");
-            const quantityNum = parseInt(quantity.textContent, 10);
-            if (quantityNum < 10) {
-                quantity.textContent = quantityNum + 1;
-            }
-        });
+        renderAddBtn();
     }
 
     if (addToCartBtn) {

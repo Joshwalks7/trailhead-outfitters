@@ -19,7 +19,7 @@ function closeModal() {
     overlay.classList.add("hidden");
 }
 
-// Event Delegation: Listen to the grid container
+// Listen to the grid container
 export function viewModal(grid) {
     if (!grid) return;
     grid.addEventListener("click", (event) => {
@@ -47,6 +47,7 @@ export function viewModal(grid) {
             showModal();
             renderSubtractionBtn();
             renderAddBtn();
+            
             const addToCartBtn = document.getElementById("add-to-cart");
             addToCartBtn.addEventListener("click", () => {
                 addToCart(matchedProduct.id);

@@ -37,18 +37,19 @@ if (cartGrid) {
         }
     });
 }
-
+// checkout form modal
 if (checkoutButton && checkoutOverlay && checkoutForm) {
+    // open modal
     checkoutButton.addEventListener("click", () => {
         checkoutOverlay.classList.remove("hidden");
         checkoutOverlay.classList.add("show");
     });
-
+    // close modal clicking outside the modal
     checkoutOverlay.addEventListener("click", () => {
         checkoutOverlay.classList.add("hidden");
         checkoutOverlay.classList.remove("show");
     });
-
+    // don't let clicks inside the modal close the modal
     checkoutForm.addEventListener("click", (event) => {
         event.stopPropagation();
     });
