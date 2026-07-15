@@ -6,7 +6,7 @@ export function renderProductCards(products, targetContainer) {
         const card = `
             <article class="product-card">
                 <div class="image-holder">
-                  <img src="${product.imageUrl}" alt="${product.name} image">
+                  <img src="${product.imageUrl}" alt="${product.name} image" loading="lazy">
                 </div>
                 <h3>${product.name}</h3>
                 <p>${product.description}</p>
@@ -28,7 +28,7 @@ export function renderCartCards(cart, targetContainer) {
         const card = `
         <article class="cart-product-card">
             <div class="image-holder">
-                <img src="${item.imageUrl}" alt="${item.name} image">
+                <img src="${item.imageUrl}" alt="${item.name} image" loading="lazy">
             </div>
             <div>
                 <h3>${item.name}</h3>
