@@ -143,10 +143,18 @@ body {
 	background-color: white;
 	border-radius: 0px;
 	padding: 16px;
+	position: relative;
 	/* display: flex;
 	flex-wrap: wrap;
 	gap: 20px;
 	align-items: stretch; */
+}
+
+.modal-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: start;
+	gap: 12px;
 }
 .button {
 	display: inline-block;
@@ -218,7 +226,7 @@ body {
 .image-holder {
     text-align: center;
 }
-.product-card button, .modal-card button {
+.product-card button, .modal-card #add-to-cart {
 	background-color: var(--primary-color);
 	color: #fff;
 	border: 0;
@@ -300,6 +308,11 @@ body {
     width: 35px;
 	height: 35px;
 	padding: 0;
+	background-color: var(--primary-color);
+	color: white;
+	border: 0;
+	border-radius: 4px;
+	cursor: pointer;
 }
 .quantity-buttons {
 	display: grid;
@@ -322,7 +335,18 @@ body {
 .quantity-buttons button:hover {
 	transform: none;
 }
-
+.modal-close {
+	border: 0;
+	cursor: pointer;
+	color: white;
+	background-color: var(--primary-color);
+	width: 35px;
+	height: 35px;
+}
+.modal-card button.modal-close:hover,
+.modal-close:hover {
+    transform: none !important;
+}
 @media screen and (min-width: 600px) {
     .hero-content {
 	max-width: 640px;

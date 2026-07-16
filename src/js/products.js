@@ -2,6 +2,7 @@ import './navigation.js';
 import { fetchProductData } from "./data.js";
 import { renderProductCards, renderSubtractionBtn, renderAddBtn } from "./render.js";
 import { addToCart } from "./storage.js";
+import { closeModal as hideModal, openModal, setupModal, trapModalFocus } from "./modal.js";
 
 const productData = await fetchProductData();
 const productGrid = document.querySelector(".product-grid");
@@ -9,6 +10,8 @@ const filterButtonsContainer = document.getElementById("filter-buttons");
 const overlay = document.getElementById("modalOverlay");
 const modalBox = document.querySelector(".modalBox");
 const selectedFilters = new Set();
+
+setupModal(overlay, modalBox, "product-modal-title");
 
 // These are the buttons that will appear in the filter sidebar.
 const filterOptions = [
@@ -37,9 +40,7 @@ function formatFilterLabel(filter) {
 
 // Hide the product modal.
 function closeModal() {
-    if (!overlay) return;
-    overlay.classList.add("hidden");
-    overlay.classList.remove("show");
+    hideModal(overlay);
 }
 
 // Fill the modal with the selected product and open it.
@@ -48,11 +49,15 @@ function showModal(product) {
 
     modalBox.innerHTML = `
         <article class="modal-card">
+
             <div class="image-holder">
                 <img src="${product.imageUrl}" alt="${product.name} image" loading="lazy">
             </div>
             <div>
-                <h3>${product.name}</h3>
+            <div class="modal-header">
+                <h3 id="product-modal-title">${product.name}</h3>
+                <button type="button" class="modal-close" data-modal-close aria-label="Close dialog">×</button>
+            </div>
                 <p>${product.description}</p>
                 <p class="price">$${product.price}</p>
                 <div class="quantity-buttons">
@@ -64,8 +69,7 @@ function showModal(product) {
             </div>
         </article>`;
 
-    overlay.classList.remove("hidden");
-    overlay.classList.add("show");
+    openModal(overlay, modalBox);
 
     const addToCartBtn = document.getElementById("add-to-cart");
     const subtractBtn = document.getElementById("subtract-btn");
@@ -84,6 +88,11 @@ function showModal(product) {
             addToCart(product.id);
             closeModal();
         });
+    }
+
+    const closeButton = modalBox.querySelector("[data-modal-close]");
+    if (closeButton) {
+        closeButton.addEventListener("click", closeModal);
     }
 }
 
@@ -205,9 +214,7 @@ if (productGrid) {
 
 // Escape key closes the modal.
 document.addEventListener("keydown", event => {
-    if (event.key === "Escape") {
-        closeModal();
-    }
+    trapModalFocus(event, modalBox, closeModal);
 });
 
 // Start the page by showing buttons and the initial product list.

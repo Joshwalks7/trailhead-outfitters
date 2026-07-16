@@ -46,7 +46,7 @@ export function renderSubtractionBtn() {
     subtractBtn.addEventListener("click", () => {
         let quantity = document.getElementById("quantity");
         let quantityNum = parseInt(quantity.textContent, 10);
-        if (quantityNum > 0) {
+        if (quantityNum > 1) {
             quantityNum--;
             quantity.innerHTML = quantityNum;
         }

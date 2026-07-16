@@ -2,6 +2,7 @@ import './navigation.js';
 import { renderSubtractionBtn, renderAddBtn, renderProductCards } from './render.js';
 import { addToCart } from './storage.js';
 import { fetchProductData } from "./data.js";
+import { closeModal as hideModal, openModal, setupModal, trapModalFocus } from "./modal.js";
 const products = await fetchProductData();
 
 const overlay = document.getElementById("modalOverlay");
@@ -9,14 +10,14 @@ const modalBox = document.querySelector(".modalBox");
 // Select the permanent parent grid container instead of individual buttons
 const productGrid = document.querySelector(".product-grid");
 
+setupModal(overlay, modalBox, "product-modal-title");
+
 function showModal() {
-    overlay.classList.remove("hidden");
-    overlay.classList.add("show");
+    openModal(overlay, modalBox);
 }
 
 function closeModal() {
-    overlay.classList.remove("show");
-    overlay.classList.add("hidden");
+    hideModal(overlay);
 }
 
 // Listen to the grid container
@@ -29,11 +30,15 @@ export function viewModal(grid) {
             const matchedProduct = products.find(product => product.id === clickedId);
             modalBox.innerHTML = `
             <article class="modal-card">
+
             <div class="image-holder">
               <img src="${matchedProduct.imageUrl}" alt="${matchedProduct.name} image" loading="lazy">
             </div>
             <div>
-                <h3>${matchedProduct.name}</h3>
+            <div class="modal-header">
+                <h3 id="product-modal-title">${matchedProduct.name}</h3>
+                <button type="button" class="modal-close" data-modal-close aria-label="Close dialog">×</button>
+            </div>
                 <p>${matchedProduct.description}</p>
                 <p class="price">$${matchedProduct.price}</p>
                 <div class="quantity-buttons">
@@ -53,15 +58,18 @@ export function viewModal(grid) {
                 addToCart(matchedProduct.id);
                 closeModal();
             });
+
+            const closeButton = modalBox.querySelector("[data-modal-close]");
+            if (closeButton) {
+                closeButton.addEventListener("click", closeModal);
+            }
         }
     });
 }
 
 // Escape key check
 document.addEventListener("keydown", (event) => {
-    if (event.key === "Escape") {
-        closeModal();
-    }
+    trapModalFocus(event, modalBox, closeModal);
 });
 
 // Overlay closing system
