@@ -2,6 +2,7 @@ import './navigation.js';
 import { retrieveFromStorage, removeFromCart, clearCart } from "./storage.js";
 import { fetchProductData } from "./data.js";
 import { renderCartCards } from './render.js';
+import { closeModal as hideModal, openModal, setupModal, trapModalFocus } from "./modal.js";
 
 const cartGrid = document.getElementById("cart-products");
 const products = await fetchProductData();
@@ -9,8 +10,16 @@ const currentCart = retrieveFromStorage();
 const cartProducts = [];
 const checkoutButton = document.querySelector("#checkout button");
 const checkoutOverlay = document.getElementById("modalOverlay");
+const checkoutDialog = document.querySelector(".checkoutModalBox");
 const checkoutForm = document.getElementById("checkout-form");
 const purchaseMessage = document.getElementById("purchase-message");
+const checkoutCloseButton = checkoutDialog?.querySelector("[data-modal-close]");
+
+setupModal(checkoutOverlay, checkoutDialog, "checkout-modal-title");
+
+if (checkoutCloseButton) {
+    checkoutCloseButton.addEventListener("click", () => hideModal(checkoutOverlay));
+}
 
 currentCart.forEach(cartItem => {
     const product = products.find(matchedProduct => matchedProduct.id == cartItem.id);
@@ -38,16 +47,14 @@ if (cartGrid) {
     });
 }
 // checkout form modal
-if (checkoutButton && checkoutOverlay && checkoutForm) {
+if (checkoutButton && checkoutOverlay && checkoutForm && cartProducts.length > 0) {
     // open modal
     checkoutButton.addEventListener("click", () => {
-        checkoutOverlay.classList.remove("hidden");
-        checkoutOverlay.classList.add("show");
+        openModal(checkoutOverlay, checkoutDialog);
     });
     // close modal clicking outside the modal
     checkoutOverlay.addEventListener("click", () => {
-        checkoutOverlay.classList.add("hidden");
-        checkoutOverlay.classList.remove("show");
+        hideModal(checkoutOverlay);
     });
     // don't let clicks inside the modal close the modal
     checkoutForm.addEventListener("click", (event) => {
@@ -67,14 +74,17 @@ if (checkoutButton && checkoutOverlay && checkoutForm) {
         renderCartCards(cartProducts, cartGrid);
         updateCheckoutDetails();
         checkoutForm.reset();
-        checkoutOverlay.classList.add("hidden");
-        checkoutOverlay.classList.remove("show");
+        hideModal(checkoutOverlay);
 
         if (purchaseMessage) {
             purchaseMessage.textContent = "Purchase complete. Your cart has been cleared.";
         }
     });
 }
+
+document.addEventListener("keydown", event => {
+    trapModalFocus(event, checkoutDialog, () => hideModal(checkoutOverlay));
+});
 
 function updateCheckoutDetails() {
     const subtotal = document.getElementById("subtotal");
