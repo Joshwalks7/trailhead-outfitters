@@ -138,16 +138,11 @@ body {
     visibility: visible;
 }
 .modalBox {
-	/* height: 480px; */
 	width: min(500px, 90%);
 	background-color: white;
 	border-radius: 0px;
 	padding: 16px;
 	position: relative;
-	/* display: flex;
-	flex-wrap: wrap;
-	gap: 20px;
-	align-items: stretch; */
 }
 
 .modal-header {

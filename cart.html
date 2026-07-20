@@ -44,7 +44,6 @@
         <nav
           class="site-nav"
           id="primary-navigation"
-          aria-label="Main Navigation"
         >
           <ul class="main-nav">
             <li><a href="index.html">Home</a></li>
@@ -75,10 +74,25 @@
         <div id="cart-products"></div>
       </section>
       <section id="modalOverlay" class="hidden">
-        <div class="checkoutModalBox" role="dialog" aria-modal="true" aria-labelledby="checkout-modal-title" tabindex="-1">
+        <div
+          class="checkoutModalBox"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="checkout-modal-title"
+          tabindex="-1"
+        >
           <div class="modal-header">
-            <h2 id="checkout-modal-title">Checkout: Warning! Fake site, do not input real data</h2>
-            <button type="button" class="modal-close" data-modal-close aria-label="Close dialog">×</button>
+            <h2 id="checkout-modal-title">
+              Checkout: Warning! Fake site, do not input real data
+            </h2>
+            <button
+              type="button"
+              class="modal-close"
+              data-modal-close
+              aria-label="Close dialog"
+            >
+              ×
+            </button>
           </div>
           <form id="checkout-form">
             <p>

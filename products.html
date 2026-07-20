@@ -1,62 +1,92 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Trailhead Outfitters</title>
-    <link rel="stylesheet" href="src/style.css">
-    <link rel="stylesheet" href="src/products.css">
+    <link rel="stylesheet" href="src/style.css" />
+    <link rel="stylesheet" href="src/products.css" />
     <script type="module" src="src/js/products.js" defer></script>
   </head>
   <body>
     <header class="site-header">
-		<div class="container header-content">
-			<h1 class="brand">Trailhead Outfitters</h1>
-            <form class="search-form" action="products.html" method="GET">
-				<input class="search-input" id="search" name="search" type="search" placeholder="Search products">
-				<button class="search-button" type="submit" id="searchBtn" aria-label="Search products">
-					<img src="/images/search.svg" alt="">
-				</button>
-            </form>
-      <button class="menu-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="primary-navigation">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-      <nav class="site-nav" id="primary-navigation" aria-label="Main Navigation">
-				<ul class="main-nav">
-					<li><a href="index.html">Home</a></li>
-					<li><a href="products.html">Products</a></li>
-					<li><a href="cart.html">Cart</a></li>
-					<li><a href="site-plan.html">Site Plan</a></li>
-				</ul>
-			</nav>
-		</div>
-	</header>
+      <div class="container header-content">
+        <h1 class="brand">Trailhead Outfitters</h1>
+        <form class="search-form" action="products.html" method="GET">
+          <input
+            class="search-input"
+            id="search"
+            name="search"
+            type="search"
+            placeholder="Search products"
+          />
+          <button
+            class="search-button"
+            type="submit"
+            id="searchBtn"
+            aria-label="Search products"
+          >
+            <img src="/images/search.svg" alt="" />
+          </button>
+        </form>
+        <button
+          class="menu-toggle"
+          type="button"
+          aria-label="Toggle navigation"
+          aria-expanded="false"
+          aria-controls="primary-navigation"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <nav class="site-nav" id="primary-navigation">
+          <ul class="main-nav">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="cart.html">Cart</a></li>
+            <li><a href="site-plan.html">Site Plan</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
     <main>
       <section id="modalOverlay" class="hidden">
-        <div class="modalBox" role="dialog" aria-modal="true" aria-labelledby="product-modal-title" tabindex="-1">
+        <div
+          class="modalBox"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="product-modal-title"
+          tabindex="-1"
+        >
           Loading...
         </div>
       </section>
-        <div id="product-page-container">
-            <aside id="filter-tab">
-                <h2>Filters</h2>
-                <div id="filter-buttons"></div>
-            </aside>
-            <div id="products-side-bar">
-                <h1>Products:</h1>
-                <div id="product-grid" class="product-grid">
-                  <h3>Finding special products just for you...</h3>
-                </div>
-            </div>
+      <div id="product-page-container">
+        <aside id="filter-tab">
+          <h2>Filters</h2>
+          <div id="filter-buttons"></div>
+        </aside>
+        <div id="products-side-bar">
+          <h1>Products:</h1>
+          <div id="product-grid" class="product-grid">
+            <h3>Finding special products just for you...</h3>
+          </div>
         </div>
+      </div>
     </main>
     <footer class="site-footer">
-		<div class="container footer-content">
-			<p>Trailhead Outfitters</p>
-			<p><a href="https://github.com/Joshwalks7/trailhead-outfitters" target="_blank" rel="noreferrer">GitHub Repository</a></p>
-		</div>
-	</footer>
-</body>
+      <div class="container footer-content">
+        <p>Trailhead Outfitters</p>
+        <p>
+          <a
+            href="https://github.com/Joshwalks7/trailhead-outfitters"
+            target="_blank"
+            rel="noreferrer"
+            >GitHub Repository</a
+          >
+        </p>
+      </div>
+    </footer>
+  </body>
 </html>

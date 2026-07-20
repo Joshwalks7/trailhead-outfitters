@@ -64,11 +64,25 @@ if (checkoutButton && checkoutOverlay && checkoutForm && cartProducts.length > 0
     checkoutForm.addEventListener("submit", (event) => {
         event.preventDefault();
 
+        const expiryInput = document.getElementById("card-expiry");
+        
+        // Reset custom validity before re-checking
+        expiryInput.setCustomValidity("");
+
+        // Check if the input passes standard HTML checks first
         if (!checkoutForm.checkValidity()) {
             checkoutForm.reportValidity();
             return;
         }
 
+        // Custom check: Verify if the card date is in the past
+        if (isCardExpired(expiryInput.value)) {
+            expiryInput.setCustomValidity("This credit card has expired.");
+            checkoutForm.reportValidity(); // Displays the error message to the user
+            return;
+        }
+
+        // Process successful checkout...
         clearCart();
         cartProducts.length = 0;
         renderCartCards(cartProducts, cartGrid);
@@ -85,6 +99,24 @@ if (checkoutButton && checkoutOverlay && checkoutForm && cartProducts.length > 0
 document.addEventListener("keydown", event => {
     trapModalFocus(event, checkoutDialog, () => hideModal(checkoutOverlay));
 });
+
+function isCardExpired(expiryValue) {
+  const [monthStr, yearStr] = expiryValue.split("/");
+  if (!monthStr || !yearStr) return true;
+
+  const expMonth = parseInt(monthStr, 10);
+  const expYear = 2000 + parseInt(yearStr, 10); // Converts "26" to 2026
+
+  const now = new Date();
+  const currentMonth = now.getMonth() + 1; // Months are 0-indexed in JS
+  const currentYear = now.getFullYear();
+
+  // Card is expired if year is in the past, or if year is current but month is in the past
+  if (expYear < currentYear) return true;
+  if (expYear === currentYear && expMonth < currentMonth) return true;
+
+  return false;
+}
 
 function updateCheckoutDetails() {
     const subtotal = document.getElementById("subtotal");
