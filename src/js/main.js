@@ -85,7 +85,6 @@ bestProductsIds.forEach(bestSellerId => {
     bestProducts.push(product);
 })
 const bestSellerGrid = document.querySelector(".best-seller-grid");
-renderProductCards(bestProducts, bestSellerGrid);
 if (bestSellerGrid) {
     renderProductCards(bestProducts, bestSellerGrid);
     viewModal(bestSellerGrid);
